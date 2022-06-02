@@ -1,7 +1,11 @@
-import express from "express";
+import express from "express"
+import cors from "cors"
 
-const app = express();
+const app = express()
 
-app.listen(3000, () => {
-    console.log('run')
-});
+app.use(cors())
+app.use(express.json())
+
+app.listen(process.env.PORT || "8080", () => {
+    console.log('server running 🦇')
+})
