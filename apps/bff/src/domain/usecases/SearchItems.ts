@@ -1,4 +1,4 @@
-import { ItemDto } from "./dtos"
+import { SearchResultDto } from "./dtos/SearchResultDto"
 
 export interface SearchItems {
     searchItems(params: SearchItems.Params): Promise<SearchItems.Result>
@@ -9,8 +9,5 @@ export namespace SearchItems {
         query: string
     }
 
-    export type Result = {
-        categories: string[]
-        items: ItemDto[]
-    }
+    export type Result = SearchResultDto
 }
