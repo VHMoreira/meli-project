@@ -1,10 +1,6 @@
-import express from "express"
-import cors from "cors"
+import { setupApp } from "./config/app"
 
-const app = express()
-
-app.use(cors())
-app.use(express.json())
+const app = setupApp()
 
 app.listen(process.env.PORT || "8080", () => {
     console.log('server running 🦇')
