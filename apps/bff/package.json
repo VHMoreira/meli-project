@@ -6,6 +6,7 @@
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/main/server.ts"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1"
