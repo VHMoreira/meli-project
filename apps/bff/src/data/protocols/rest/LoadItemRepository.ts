@@ -2,7 +2,7 @@ import { Item } from '@/domain/models'
 import { LoadItem } from '@/domain/usecases'
 
 export interface LoadItemRepository {
-    load: (data: LoadItemRepository.Params) => Promise<LoadItemRepository.Result>
+    load(data: LoadItemRepository.Params): Promise<LoadItemRepository.Result>
 }
 
 export namespace LoadItemRepository {
