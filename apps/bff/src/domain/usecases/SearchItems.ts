@@ -1,7 +1,7 @@
-import { SearchResultDto } from "../dtos/SearchResultDto"
+import { Item } from "../models"
 
 export interface SearchItems {
-    searchItems(params: SearchItems.Params): Promise<SearchItems.Result>
+    search(params: SearchItems.Params): Promise<SearchItems.Result>
 }
 
 export namespace SearchItems {
@@ -9,5 +9,19 @@ export namespace SearchItems {
         query: string
     }
 
-    export type Result = SearchResultDto
+    export type Result = {
+        results: Item[]
+        filters: Array<{
+            id: string
+            values: Array<{
+                name: string
+            }>
+        }>
+        available_filters: Array<{
+            id: string
+            values: Array<{
+                name: string
+            }>
+        }>
+    }
 }
