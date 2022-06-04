@@ -1,5 +1,6 @@
 import { ItemDto } from "@/domain/dtos";
 import { LoadItem, LoadItemDescription } from "@/domain/usecases";
+import { ok, serverError } from "../helpers";
 import { Controller, HttpResponse } from "../protocols"
 
 export class LoadItemController implements Controller {
@@ -9,27 +10,31 @@ export class LoadItemController implements Controller {
     ) { }
 
     async handle({ id }: LoadItemController.Request): Promise<HttpResponse<ItemDto>> {
-        const [item, itemDescription] = await Promise.all([
-            this.loadItem.load({ id }),
-            this.loadItemDescription.load({ id })
-        ])
+        try {
+            const [item, itemDescription] = await Promise.all([
+                this.loadItem.load({ id }),
+                this.loadItemDescription.load({ id })
+            ])
 
-        return {
-            statusCode: 200,
-            body: {
-                id: item.id,
-                title: item.title,
-                condition: item.condition,
-                description: itemDescription.plain_text,
-                free_shipping: item.shipping.free_shipping,
-                picture: item.thumbnail,
-                sold_quantity: item.available_quantity,
-                price: {
-                    amount: item.available_quantity,
-                    currency: item.currency_id,
-                    decimals: item.price
+            return ok({
+                statusCode: 200,
+                body: {
+                    id: item.id,
+                    title: item.title,
+                    condition: item.condition,
+                    description: itemDescription.plain_text,
+                    free_shipping: item.shipping.free_shipping,
+                    picture: item.thumbnail,
+                    sold_quantity: item.available_quantity,
+                    price: {
+                        amount: item.available_quantity,
+                        currency: item.currency_id,
+                        decimals: item.price
+                    }
                 }
-            }
+            })
+        } catch (error) {
+            return serverError(error as Error)
         }
     }
 
