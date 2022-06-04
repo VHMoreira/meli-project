@@ -7,5 +7,5 @@ export interface LoadItemRepository {
 
 export namespace LoadItemRepository {
     export type Params = LoadItem.Params
-    export type Result = Item
+    export type Result = LoadItem.Result
 }

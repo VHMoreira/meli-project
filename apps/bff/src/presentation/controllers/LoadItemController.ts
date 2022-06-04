@@ -17,20 +17,17 @@ export class LoadItemController implements Controller {
             ])
 
             return ok({
-                statusCode: 200,
-                body: {
-                    id: item.id,
-                    title: item.title,
-                    condition: item.condition,
-                    description: itemDescription.plain_text,
-                    free_shipping: item.shipping.free_shipping,
-                    picture: item.thumbnail,
-                    sold_quantity: item.available_quantity,
-                    price: {
-                        amount: item.available_quantity,
-                        currency: item.currency_id,
-                        decimals: item.price
-                    }
+                id: item.id,
+                title: item.title,
+                condition: item.condition,
+                description: itemDescription.plain_text,
+                free_shipping: item.shipping.free_shipping,
+                picture: item.thumbnail,
+                sold_quantity: item.available_quantity,
+                price: {
+                    amount: item.available_quantity,
+                    currency: item.currency_id,
+                    decimals: item.price
                 }
             })
         } catch (error) {

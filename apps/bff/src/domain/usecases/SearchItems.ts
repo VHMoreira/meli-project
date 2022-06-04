@@ -1,4 +1,4 @@
-import { Item } from "../models"
+import { SearchResult } from "../models/SearchResult"
 
 export interface SearchItems {
     search(params: SearchItems.Params): Promise<SearchItems.Result>
@@ -9,19 +9,5 @@ export namespace SearchItems {
         query: string
     }
 
-    export type Result = {
-        results: Item[]
-        filters: Array<{
-            id: string
-            values: Array<{
-                name: string
-            }>
-        }>
-        available_filters: Array<{
-            id: string
-            values: Array<{
-                name: string
-            }>
-        }>
-    }
+    export type Result = SearchResult
 }
