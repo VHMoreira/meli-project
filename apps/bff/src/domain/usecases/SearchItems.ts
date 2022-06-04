@@ -1,4 +1,4 @@
-import { SearchResultDto } from "./dtos/SearchResultDto"
+import { SearchResultDto } from "../dtos/SearchResultDto"
 
 export interface SearchItems {
     searchItems(params: SearchItems.Params): Promise<SearchItems.Result>

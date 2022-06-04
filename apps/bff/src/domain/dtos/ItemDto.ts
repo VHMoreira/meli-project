@@ -5,7 +5,7 @@ export type ItemDto = {
     picture: string
     condition: string
     free_shipping: boolean
-    sold_quality: number
+    sold_quantity: number
     description: string
 }
 

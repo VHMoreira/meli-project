@@ -6,5 +6,5 @@ export type SearchResultDto = {
         lastname: string
     }
     categories: string[]
-    items: Omit<ItemDto, 'description'>
+    items: Omit<ItemDto, 'description' | 'sold_quantity' | 'description'>
 }
