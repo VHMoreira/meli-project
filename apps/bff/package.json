@@ -1,5 +1,5 @@
 {
-  "name": "bff",
+  "name": "@meli-project/bff",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
