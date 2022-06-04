@@ -1,8 +1,7 @@
 import { Item } from "../models"
-import { ItemDto } from "./dtos"
 
 export interface LoadItem {
-    loadItem(params: LoadItem.Params): Promise<LoadItem.Result>
+    load(params: LoadItem.Params): Promise<LoadItem.Result>
 }
 
 export namespace LoadItem {
@@ -10,5 +9,5 @@ export namespace LoadItem {
         id: Item['id']
     }
 
-    export type Result = ItemDto
+    export type Result = Item
 }
