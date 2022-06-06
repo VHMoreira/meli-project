@@ -1,7 +1,8 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import './global.scss'
+import '@/presentation/styles/global.scss'
+import Router from './routes'
 
 const rootContainer = document.getElementById('root')
 const root = createRoot(rootContainer)
-root.render(<h1>Hello World!</h1>)
+root.render(<Router />)
