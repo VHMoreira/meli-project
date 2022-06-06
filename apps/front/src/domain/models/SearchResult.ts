@@ -1,18 +1,18 @@
-export type SearchResultDto = {
+export type SearchResult = {
     categories: string[]
-    items: SearchResultItemDto[]
+    items: SearchResultItem[]
 }
 
-export type SearchResultItemDto = {
+export type SearchResultItem = {
     id: string
     title: string
-    price: SearchResultItemPriceDto
+    price: SearchResultItemPrice
     picture: string
     condition: string
     free_shipping: boolean
 }
 
-export type SearchResultItemPriceDto = {
+export type SearchResultItemPrice = {
     currency: string
     amount: number
     decimals: number
