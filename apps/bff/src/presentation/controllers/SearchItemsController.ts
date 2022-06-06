@@ -1,4 +1,4 @@
-import { SearchResultDto } from "@/domain/dtos/SearchResultDto";
+import { SearchResultDto } from "@/domain/dtos";
 import { SearchItems } from "@/domain/usecases";
 import { ok, serverError } from "../helpers";
 import { Controller, HttpResponse } from "../protocols"
