@@ -1,7 +1,7 @@
 import { SearchResult } from '@/domain/models'
 
 export interface LoadItemsSearch {
-    load: (params: LoadItemsSearch.Params) => Promise<LoadItemsSearch.Model>
+    load(params: LoadItemsSearch.Params): Promise<LoadItemsSearch.Model>
 }
 
 export namespace LoadItemsSearch {
