@@ -1,0 +1,38 @@
+@import '@/presentation/styles/colors.scss';
+
+.header {
+    width: 100%;
+    background-color: $principal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.headerContent {
+    width: 100%;
+    max-width: 80vw;
+    display: flex;
+}
+
+.searchbox {
+    margin-left: 20px;
+    display: flex;
+    width: 100%;
+
+    >input {
+        flex: 1;
+        border: 0;
+        font-size: 18px;
+        padding: 5px 15px;
+    }
+
+    >button {
+        border: 0;
+        background-color: $light;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

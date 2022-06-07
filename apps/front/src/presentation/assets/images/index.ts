@@ -1,0 +1,6 @@
+export { default as LogoMl } from './Logo_ML.png'
+export { default as LogoMl2x } from './Logo_ML@2x.png'
+export { default as icSearch } from './ic_Search.png'
+export { default as icSearch2x } from './ic_Search@2x.png'
+export { default as icShipping } from './ic_shipping.png'
+export { default as icShipping2x } from './ic_shipping@2x.png'

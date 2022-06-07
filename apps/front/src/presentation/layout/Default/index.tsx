@@ -1,22 +1,10 @@
-import React, { PropsWithChildren, useEffect } from "react"
-import { useItem } from "@/presentation/hooks"
+import React, { PropsWithChildren } from "react"
+import Header from "@/presentation/components/Header"
 
 const Default: React.FC<PropsWithChildren> = ({ children }) => {
-    const { item, searchResult, loadSearchResult } = useItem()
-
-    useEffect(() => {
-        const load = async () => {
-            const response = await loadSearchResult({
-                query: 'nintendo'
-            })
-            return response
-        }
-        load()
-    }, [])
-
     return (
         <>
-            {searchResult?.categories[0]}
+            <Header />
             {children}
         </>
     )
