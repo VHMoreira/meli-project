@@ -1,17 +1,14 @@
 import React, { PropsWithChildren, useEffect } from "react"
-import { LoadItemsSearch } from "@/domain/usecases/LoadItemsSearch"
+import { useItem } from "@/presentation/hooks"
 
-type Props = {
-    loadItemsSearch: LoadItemsSearch
-}
+const Default: React.FC<PropsWithChildren> = ({ children }) => {
+    const { item, searchResult, loadSearchResult } = useItem()
 
-const Default: React.FC<PropsWithChildren<Props>> = ({ loadItemsSearch, children }) => {
     useEffect(() => {
         const load = async () => {
-            const response = await loadItemsSearch.load({
+            const response = await loadSearchResult({
                 query: 'nintendo'
             })
-            console.log(response)
             return response
         }
         load()
@@ -19,6 +16,7 @@ const Default: React.FC<PropsWithChildren<Props>> = ({ loadItemsSearch, children
 
     return (
         <>
+            {searchResult?.categories[0]}
             {children}
         </>
     )
