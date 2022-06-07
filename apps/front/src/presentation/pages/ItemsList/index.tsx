@@ -1,21 +1,6 @@
-import { LoadItemsSearch } from "@/domain/usecases/LoadItemsSearch"
-import React, { useEffect } from "react"
+import React from "react"
 
-type Props = {
-    loadItemsSearch: LoadItemsSearch
-}
-
-const ItemsList: React.FC<Props> = ({ loadItemsSearch }) => {
-    useEffect(() => {
-        const load = async () => {
-            const response = await loadItemsSearch.load({
-                query: 'nintendo'
-            })
-            console.log(response)
-            return response
-        }
-        load()
-    }, [])
+const ItemsList: React.FC = () => {
     return (
         <h1>Busqueda de productos</h1>
     )
