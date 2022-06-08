@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useItem } from "@/presentation/hooks"
+import { useNavigate } from "react-router-dom"
 import { LogoMl, icSearch } from '@/presentation/assets/images'
 import Style from './styles.scss'
 
@@ -7,7 +8,8 @@ type HandleEntryInput = React.ChangeEventHandler<HTMLInputElement>
 
 const Header: React.FC = () => {
     const [query, setQuery] = useState<string | null>()
-    const { item, searchResult, loadSearchResult } = useItem()
+    const navigate = useNavigate()
+    const { loadSearchResult } = useItem()
 
     const handleInputEntry: HandleEntryInput = ({ target }) => {
         const { value } = target
@@ -18,6 +20,7 @@ const Header: React.FC = () => {
         await loadSearchResult({
             query
         })
+        navigate('/')
     }
     return (
         <header className={Style.header}>

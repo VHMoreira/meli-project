@@ -1,11 +1,11 @@
 import { SearchResult } from "@/domain/models";
-import { LoadItemsSearch } from "@/domain/usecases/LoadItemsSearch"
+import { LoadItemsSearch } from "@/domain/usecases"
 import { HttpClient, HttpStatusCode } from "../protocols/http/HttpClient";
 
 export class RemoteLoadItemsSearch implements LoadItemsSearch {
     constructor(
         private readonly url: string,
-        private readonly httpClient: HttpClient<RemoteLoadSurveyList.Model>
+        private readonly httpClient: HttpClient<RemoteLoadItemsSearch.Model>
     ) { }
 
     async load({ query }: LoadItemsSearch.Params): Promise<SearchResult> {
@@ -24,6 +24,6 @@ export class RemoteLoadItemsSearch implements LoadItemsSearch {
     }
 }
 
-export namespace RemoteLoadSurveyList {
+export namespace RemoteLoadItemsSearch {
     export type Model = SearchResult
 }

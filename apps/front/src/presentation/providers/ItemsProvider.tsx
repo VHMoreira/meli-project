@@ -1,11 +1,12 @@
 import React, { createContext, PropsWithChildren, useCallback, useState } from 'react';
 import { Item, SearchResult } from '@/domain/models';
-import { LoadItemsSearch } from '@/domain/usecases';
+import { LoadItemDetails, LoadItemsSearch } from '@/domain/usecases';
 
 interface ItemContextData {
     item?: Item
     searchResult?: SearchResult
     loadSearchResult(params: LoadItemsSearch.Params): Promise<void>
+    loadItem(params: LoadItemDetails.Params): Promise<void>
 }
 
 type State = {
@@ -15,11 +16,12 @@ type State = {
 
 type Props = {
     loadItemsSearch: LoadItemsSearch
+    loadItemDetails: LoadItemDetails
 }
 
 export const ItemContext = createContext<ItemContextData>({} as ItemContextData)
 
-export const ItemProvider: React.FC<PropsWithChildren<Props>> = ({ children, loadItemsSearch }) => {
+export const ItemProvider: React.FC<PropsWithChildren<Props>> = ({ children, loadItemsSearch, loadItemDetails }) => {
     const [data, setData] = useState<State>({})
 
     const loadSearchResult = useCallback(async ({ query }: LoadItemsSearch.Params) => {
@@ -33,8 +35,19 @@ export const ItemProvider: React.FC<PropsWithChildren<Props>> = ({ children, loa
         }))
     }, [])
 
+    const loadItem = useCallback(async ({ id }: LoadItemDetails.Params) => {
+        const response = await loadItemDetails.load({
+            id
+        })
+
+        setData(prev => ({
+            ...prev,
+            item: response
+        }))
+    }, [])
+
     return (
-        <ItemContext.Provider value={{ ...data, loadSearchResult }}>
+        <ItemContext.Provider value={{ ...data, loadSearchResult, loadItem }}>
             {children}
         </ItemContext.Provider>
     )
