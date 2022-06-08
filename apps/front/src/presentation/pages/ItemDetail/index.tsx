@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useItem } from "@/presentation/hooks"
 import { Breadcrumbs } from "@/presentation/components"
-import { ItemPrice } from "@/domain/models"
+import { currencyFormat } from "@/presentation/helpers"
 import { useParams } from "react-router-dom"
 import Styles from './styles.scss'
 
@@ -12,16 +12,6 @@ const ItemsList: React.FC = () => {
     useEffect(() => {
         loadItem({ id })
     }, [id])
-
-    const valueFormatted = (price: ItemPrice) => {
-        const formatter = new Intl.NumberFormat('pt-br', {
-            style: 'currency',
-            currency: price.currency
-        })
-
-
-        return formatter.format(price.decimals / 100)
-    }
 
     if (!item) {
         return null
@@ -36,7 +26,7 @@ const ItemsList: React.FC = () => {
                     <aside className={Styles.itemInfo}>
                         <p>{item.condition} - {item.price.amount} vendidos</p>
                         <h3>{item.title}</h3>
-                        <h1>{valueFormatted(item.price)}</h1>
+                        <h1>{currencyFormat(item.price)}</h1>
                         <button>
                             Comprar
                         </button>
