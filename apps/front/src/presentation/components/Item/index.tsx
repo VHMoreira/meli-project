@@ -34,7 +34,7 @@ const Item: React.FC<Props> = ({ item }) => {
                 <p className={Styles.title}>{item.title}</p>
             </div>
             <div className={Styles.location}>
-                <p>argentina</p>
+                <p>{item.state}</p>
             </div>
         </li>
     )
