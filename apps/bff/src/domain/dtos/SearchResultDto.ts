@@ -10,6 +10,7 @@ export type SearchResultItemDto = {
     picture: string
     condition: string
     free_shipping: boolean
+    state: string
 }
 
 export type SearchResultItemPriceDto = {

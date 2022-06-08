@@ -22,7 +22,8 @@ export class SearchItemsController implements Controller {
                     currency: item.currency_id,
                     decimals: item.price
                 },
-                title: item.title
+                title: item.title,
+                state: item.address.state_name
             }))
 
             const categoryFilter = searchResult.filters.find(filter => filter.id === 'category')

@@ -14,6 +14,11 @@ export type SearchResultItem = {
     price: number
     currency_id: string
     available_quantity: number
+    address: SearchResultItemAddress
+}
+
+export type SearchResultItemAddress = {
+    state_name: string
 }
 
 export type SearchResultFilter = {
