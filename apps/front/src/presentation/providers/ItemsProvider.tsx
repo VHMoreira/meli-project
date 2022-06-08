@@ -7,6 +7,7 @@ interface ItemContextData {
     searchResult?: SearchResult
     loadSearchResult(params: LoadItemsSearch.Params): Promise<void>
     loadItem(params: LoadItemDetails.Params): Promise<void>
+    resetData(): void
 }
 
 type State = {
@@ -21,8 +22,10 @@ type Props = {
 
 export const ItemContext = createContext<ItemContextData>({} as ItemContextData)
 
+const initialDataValue: State = {}
+
 export const ItemProvider: React.FC<PropsWithChildren<Props>> = ({ children, loadItemsSearch, loadItemDetails }) => {
-    const [data, setData] = useState<State>({})
+    const [data, setData] = useState<State>(initialDataValue)
 
     const loadSearchResult = useCallback(async ({ query }: LoadItemsSearch.Params) => {
         const response = await loadItemsSearch.load({
@@ -46,8 +49,12 @@ export const ItemProvider: React.FC<PropsWithChildren<Props>> = ({ children, loa
         }))
     }, [])
 
+    const resetData = useCallback(() => {
+        setData(initialDataValue)
+    }, [])
+
     return (
-        <ItemContext.Provider value={{ ...data, loadSearchResult, loadItem }}>
+        <ItemContext.Provider value={{ ...data, loadSearchResult, loadItem, resetData }}>
             {children}
         </ItemContext.Provider>
     )
