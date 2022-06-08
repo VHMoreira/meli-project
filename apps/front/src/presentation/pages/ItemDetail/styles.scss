@@ -1,4 +1,6 @@
 @import '@/presentation/styles/colors.scss';
+@import '@/presentation/styles/fontSizes.scss';
+
 
 .root {
     display: flex;
@@ -15,10 +17,71 @@
 }
 
 .itemDetail {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    grid-template-areas:
+        'picture info'
+        'picture empty'
+        'description empty';
     width: 100%;
     max-width: 80vw;
     background-color: white;
     padding: 32px;
+    margin-bottom: 32px;
+}
+
+.itemPicture {
+    grid-area: picture;
+    width: 100%;
+    max-width: 680px;
+}
+
+.itemInfo {
+    grid-area: info;
+
+    >p {
+        font-size: $fontSmall;
+        color: $greyLight;
+    }
+
+    >h3 {
+        margin-top: 16px;
+        font-size: $fontMediumLarge;
+        color: $dark;
+    }
+
+    >h1 {
+        margin: 32px 0;
+        color: $dark;
+        font-size: $fontGiant;
+        font-weight: 500;
+    }
+
+    >button {
+        background-color: $accent;
+        width: 100%;
+        color: $light;
+        font-size: $fontMediumLarge;
+        padding: 16px;
+        border: 0;
+        border-radius: 4px;
+    }
+}
+
+.description {
+    margin-top: calc(100%/8);
+    grid-area: description;
+
+    >h2 {
+        margin-bottom: 32px;
+        color: $dark;
+        font-size: $fontLarge;
+        font-weight: 500;
+    }
+
+    >p {
+        font-size: $fontSmallMedium;
+        color: $greyLight;
+        line-height: 1.25;
+    }
 }
