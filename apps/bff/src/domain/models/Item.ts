@@ -10,6 +10,9 @@ export type Item = {
     currency_id: string
     available_quantity: number
     sold_quantity: number
+    pictures: {
+        url: string
+    }[]
 }
 
 export type ItemDescription = {

@@ -22,7 +22,7 @@ export class LoadItemController implements Controller {
                 condition: item.condition,
                 description: itemDescription.plain_text,
                 free_shipping: item.shipping.free_shipping,
-                picture: item.thumbnail,
+                picture: item.pictures[0].url,
                 sold_quantity: item.sold_quantity,
                 price: {
                     amount: item.available_quantity,

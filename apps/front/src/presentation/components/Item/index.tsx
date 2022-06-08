@@ -21,7 +21,7 @@ const Item: React.FC<Props> = ({ item }) => {
     }
 
     const handleClickItem = useCallback((id: string) => {
-        navigate(`producto/${id}`)
+        navigate(`/items/${id}`)
     }, [])
 
     return (

@@ -10,8 +10,9 @@ const Router: React.FC = () => {
             <ItemProviderFactory>
                 <DefaultLayoutFactory>
                     <Routes>
-                        <Route path="/producto/:id" element={<ItemDetailFactory />} />
-                        <Route path="/" element={<ItemsListFactory />} />
+                        <Route path="/" element={null} />
+                        <Route path="/items" element={<ItemsListFactory />} />
+                        <Route path="/items/:id" element={<ItemDetailFactory />} />
                     </Routes>
                 </DefaultLayoutFactory>
             </ItemProviderFactory>

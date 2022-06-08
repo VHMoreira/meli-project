@@ -1,10 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useItem } from "@/presentation/hooks"
 import Styles from './styles.scss'
 import { Breadcrumbs, Item } from "@/presentation/components"
+import { useSearchParams } from "react-router-dom"
 
 const ItemsList: React.FC = () => {
-    const { searchResult } = useItem()
+    const { searchResult, loadSearchResult } = useItem()
+    const [searchParams] = useSearchParams()
+
+    useEffect(() => {
+        loadSearchResult({
+            query: searchParams.get('search')
+        })
+    }, [searchParams])
 
     if (!searchResult) {
         return null
