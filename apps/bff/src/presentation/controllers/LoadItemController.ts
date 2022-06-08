@@ -1,7 +1,6 @@
 import { ItemDto } from "@/domain/dtos";
 import { LoadItem, LoadItemDescription } from "@/domain/usecases";
 import { ok, serverError } from "../helpers";
-import { currencyFormatter } from "../helpers/CurrencyFormatter";
 import { Controller, HttpResponse } from "../protocols"
 
 export class LoadItemController implements Controller {
@@ -27,7 +26,7 @@ export class LoadItemController implements Controller {
                 sold_quantity: item.sold_quantity,
                 price: {
                     amount: item.available_quantity,
-                    currency: currencyFormatter(item.currency_id),
+                    currency: item.currency_id,
                     decimals: item.price
                 }
             })
