@@ -4,6 +4,7 @@ import { useItem } from "@/presentation/hooks"
 import { icShipping } from '@/presentation/assets/images'
 import Styles from './styles.scss'
 import { useNavigate } from "react-router-dom"
+import Item from "@/presentation/components/Item"
 
 const ItemsList: React.FC = () => {
     const { searchResult } = useItem()
@@ -22,26 +23,17 @@ const ItemsList: React.FC = () => {
         navigate(`producto/${id}`)
     }, [])
 
+    if (!searchResult) {
+        return null
+    }
+
     return (
         <section className={Styles.itemsListWrapper}>
-            {searchResult ? (
-                <ul className={Styles.itemsList}>
-                    {searchResult?.items.map((item) => (
-                        <li className={Styles.item} key={item.id} onClick={() => handleClickItem(item.id)}>
-                            <img className={Styles.itemPicture} src={item.picture} alt={item.title} />
-                            <div className={Styles.itemInfo}>
-                                <div className={Styles.priceWrapper}>
-                                    <p className={Styles.price}>{valueFormatted(item.price)}</p> {item.free_shipping ? <img src={icShipping} alt="free shipping" /> : null}
-                                </div>
-                                <p className={Styles.title}>{item.title}</p>
-                            </div>
-                            <div className={Styles.location}>
-                                <p>argentina</p>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            ) : null}
+            <ul className={Styles.itemsList}>
+                {searchResult?.items.map((item) => (
+                    <Item key={item.id} item={item} />
+                ))}
+            </ul>
         </section>
     )
 }
