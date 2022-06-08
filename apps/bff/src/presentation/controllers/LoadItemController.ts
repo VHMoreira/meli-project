@@ -23,7 +23,7 @@ export class LoadItemController implements Controller {
                 description: itemDescription.plain_text,
                 free_shipping: item.shipping.free_shipping,
                 picture: item.thumbnail,
-                sold_quantity: item.available_quantity,
+                sold_quantity: item.sold_quantity,
                 price: {
                     amount: item.available_quantity,
                     currency: item.currency_id,
