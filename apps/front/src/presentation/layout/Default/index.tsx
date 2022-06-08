@@ -1,11 +1,14 @@
 import React, { PropsWithChildren } from "react"
 import { Header } from "@/presentation/components"
+import Style from './styles.scss'
 
 const Default: React.FC<PropsWithChildren> = ({ children }) => {
     return (
         <>
             <Header />
-            {children}
+            <div className={Style.content}>
+                {children}
+            </div>
         </>
     )
 }

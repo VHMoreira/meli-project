@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { useItem } from "@/presentation/hooks"
-import { Breadcrumbs } from "@/presentation/components"
+import { Breadcrumbs, Loader } from "@/presentation/components"
 import { currencyFormat } from "@/presentation/helpers"
 import { useParams } from "react-router-dom"
 import Styles from './styles.scss'
@@ -14,7 +14,7 @@ const ItemsList: React.FC = () => {
     }, [id])
 
     if (!item) {
-        return null
+        return <Loader />
     }
 
     return (

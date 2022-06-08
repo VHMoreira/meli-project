@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useItem } from "@/presentation/hooks"
 import Styles from './styles.scss'
-import { Breadcrumbs, Item } from "@/presentation/components"
+import { Breadcrumbs, Item, Loader } from "@/presentation/components"
 import { useSearchParams } from "react-router-dom"
 
 const ItemsList: React.FC = () => {
@@ -15,7 +15,7 @@ const ItemsList: React.FC = () => {
     }, [searchParams])
 
     if (!searchResult) {
-        return null
+        return <Loader />
     }
 
     return (
