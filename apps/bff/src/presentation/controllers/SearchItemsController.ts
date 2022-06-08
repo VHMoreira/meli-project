@@ -25,17 +25,14 @@ export class SearchItemsController implements Controller {
                 title: item.title
             }))
 
-            const categoriesFromAvailableFilters = searchResult.available_filters
-                .find(filter => filter.id === 'category')
-                ?.values.map(values => values.name)
+            const categoryFilter = searchResult.filters.find(filter => filter.id === 'category')
+            const categoryPath = categoryFilter?.values[0]
 
-            const categoriesFromFilters = searchResult.filters
-                .find(filter => filter.id === 'category')
-                ?.values.map(values => values.name)
+            const categoriesNames = categoryPath?.path_from_root.map(category => category.name)
 
             return ok({
                 items,
-                categories: categoriesFromFilters ?? categoriesFromAvailableFilters ?? []
+                categories: categoriesNames ?? []
             })
         } catch (error) {
             return serverError(error as Error)

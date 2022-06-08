@@ -1,7 +1,6 @@
 export type SearchResult = {
     results: SearchResultItem[]
     filters: SearchResultFilter[]
-    available_filters: SearchResultFilter[]
 }
 
 export type SearchResultItem = {
@@ -23,5 +22,7 @@ export type SearchResultFilter = {
 }
 
 export type SearchResultFilterValue = {
-    name: string
+    path_from_root: Array<{
+        name: string
+    }>
 }
