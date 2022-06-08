@@ -1,4 +1,6 @@
 @import '@/presentation/styles/colors.scss';
+@import '@/presentation/styles/fontSizes';
+
 
 .item {
     display: grid;
@@ -30,13 +32,13 @@
 }
 
 .price {
-    font-size: 24px;
+    font-size: $fontMediumLarge;
     margin-right: 10px;
 }
 
 .title {
     margin-top: 32px;
-    font-size: 18px;
+    font-size: $fontMedium;
     max-width: 60%;
     white-space: pre-wrap;
 }
@@ -48,7 +50,7 @@
     padding: 16px 0;
 
     >p {
-        font-size: 12px;
+        font-size: $fontMini;
         color: $greyLight;
     }
 }

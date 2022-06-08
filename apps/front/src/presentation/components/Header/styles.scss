@@ -1,4 +1,5 @@
 @import '@/presentation/styles/colors.scss';
+@import '@/presentation/styles/fontSizes';
 
 .header {
     width: 100%;
@@ -23,7 +24,7 @@
     >input {
         flex: 1;
         border: 0;
-        font-size: 18px;
+        font-size: $fontMedium;
         padding: 5px 15px;
     }
 
