@@ -1,6 +1,7 @@
 import { SearchResultDto } from "@/domain/dtos";
 import { SearchItems } from "@/domain/usecases";
 import { ok, serverError } from "../helpers";
+import { currencyFormatter } from "../helpers/CurrencyFormatter";
 import { Controller, HttpResponse } from "../protocols"
 
 export class SearchItemsController implements Controller {
@@ -19,7 +20,7 @@ export class SearchItemsController implements Controller {
                 picture: item.thumbnail,
                 price: {
                     amount: item.available_quantity,
-                    currency: item.currency_id,
+                    currency: currencyFormatter(item.currency_id),
                     decimals: item.price
                 },
                 title: item.title,

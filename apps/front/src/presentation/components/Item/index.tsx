@@ -11,13 +11,10 @@ type Props = {
 const Item: React.FC<Props> = ({ item }) => {
     const navigate = useNavigate()
     const valueFormatted = (price: SearchResultItemPrice) => {
-        const formatter = new Intl.NumberFormat('pt-br', {
-            style: 'currency',
-            currency: price.currency
-        })
+        const formatter = new Intl.NumberFormat('pt-br')
 
 
-        return formatter.format(price.decimals / 100)
+        return `${price.currency} ${formatter.format(price.decimals / 100)}`
     }
 
     const handleClickItem = useCallback((id: string) => {
