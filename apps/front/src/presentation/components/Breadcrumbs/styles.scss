@@ -1,0 +1,20 @@
+@import '@/presentation/styles/colors.scss';
+
+.breadcrumbs {
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+}
+
+.step {
+    font-size: 14px;
+    color: $greyLight;
+}
+
+.separator {
+    margin: 0 5px;
+}
+
+.lastStep {
+    font-weight: 700;
+}

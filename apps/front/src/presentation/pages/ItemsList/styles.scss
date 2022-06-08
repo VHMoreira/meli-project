@@ -1,9 +1,17 @@
 @import '@/presentation/styles/colors.scss';
 
-.itemsListWrapper {
+.root {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 80vw;
 }
 
 .itemsList {
