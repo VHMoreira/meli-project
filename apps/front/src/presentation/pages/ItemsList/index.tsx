@@ -19,7 +19,7 @@ const ItemsList: React.FC = () => {
         return <Loader />
     }
 
-    if (searchResult.items.length !== 0) {
+    if (searchResult.items.length === 0) {
         return <EmptyList />
     }
 
