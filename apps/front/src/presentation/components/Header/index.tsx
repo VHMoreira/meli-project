@@ -19,6 +19,14 @@ const Header: React.FC = () => {
 
     const handleSubmit = async () => {
         resetData()
+
+        const isId = query.match(/(MLA)\d*$/)
+
+        if (isId) {
+            navigate(`/items/${query}`)
+            return
+        }
+
         navigate(`items?search=${query}`)
     }
 
